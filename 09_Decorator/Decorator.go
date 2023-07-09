@@ -1,4 +1,4 @@
-package _0_Decorator
+package _9_Decorator
 
 // Battery 抽象构件，给这个对象动态地添加职责
 type Battery interface {

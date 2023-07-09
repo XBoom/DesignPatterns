@@ -1,4 +1,4 @@
-package _0_Decorator
+package _9_Decorator
 
 import (
 	"strings"
