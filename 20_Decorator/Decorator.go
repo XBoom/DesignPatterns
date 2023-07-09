@@ -1,36 +1,36 @@
 package _0_Decorator
 
-// Component 抽象构件，给这个对象动态地添加职责
-type Component interface {
-	Operation() string
+// Battery 抽象构件，给这个对象动态地添加职责
+type Battery interface {
+	Name() string
 }
 
-// ConcreteComponent 具体构件
-type ConcreteComponent struct{}
+// BatteryComponent 具体构件
+type BatteryComponent struct{}
 
-func (c *ConcreteComponent) Operation() string {
-	return "ConcreteComponent"
+func (c *BatteryComponent) Name() string {
+	return "Condensed Battery"
 }
 
-// Decorator 装饰者
-type Decorator interface {
-	Component
+// Car 装饰者
+type Car interface {
+	Run() string
 }
 
-// ConcreteDecoratorA 具体装饰者 A
-type ConcreteDecoratorA struct {
-	component Component
+// BYD 具体装饰者 BYD
+type BYD struct {
+	battery Battery
 }
 
-func (d *ConcreteDecoratorA) Operation() string {
-	return "ConcreteDecoratorA(" + d.component.Operation() + ")"
+func (d *BYD) Run() string {
+	return "BYD use " + d.battery.Name() + " run"
 }
 
-// ConcreteDecoratorB 具体装饰者 B
-type ConcreteDecoratorB struct {
-	component Component
+// Tesla 具体装饰者 Tesla
+type Tesla struct {
+	battery Battery
 }
 
-func (d *ConcreteDecoratorB) Operation() string {
-	return "ConcreteDecoratorB(" + d.component.Operation() + ")"
+func (t *Tesla) Run() string {
+	return "Tesla use " + t.battery.Name() + " run"
 }
