@@ -12,7 +12,7 @@ func TestGetLazybonesInstance(t *testing.T) {
 	}
 }
 
-func BenchmarkName(b *testing.B) {
+func BenchmarkGetLazybonesInstance(b *testing.B) {
 	b.RunParallel(func(pb *testing.PB) {
 		for pb.Next() {
 			if GetLazybonesInstance() != GetLazybonesInstance() {
