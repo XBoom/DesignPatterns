@@ -1,0 +1,30 @@
+@startuml
+
+interface Observer {
+    + Update(message: String): void
+}
+
+interface Subject {
+    + RegisterObserver(observer: Observer): void
+    + RemoveObserver(observer: Observer): void
+    + NotifyObservers(message: String): void
+}
+
+class ConcreteObserver {
+    - name: String
+    + Update(message: String): void
+}
+
+class ConcreteSubject {
+    - observers: set<Observer>
+    + RegisterObserver(observer: Observer): void
+    + RemoveObserver(observer: Observer): void
+    + NotifyObservers(message: String): void
+}
+
+Observer <|.. ConcreteObserver
+Subject <|.. ConcreteSubject
+
+ConcreteSubject -up-> Observer
+
+@enduml

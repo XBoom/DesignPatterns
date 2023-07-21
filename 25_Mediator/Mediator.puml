@@ -1,0 +1,32 @@
+```
+@startuml
+
+interface Colleague {
+    + SendMessage(message: String): void
+    + ReceiveMessage(message: String): void
+}
+
+interface Mediator {
+    + SendMessage(message: String, colleague: Colleague): void
+}
+
+class ConcreteColleague {
+    - name: String
+    - mediator: Mediator
+    + SendMessage(message: String): void
+    + ReceiveMessage(message: String): void
+}
+
+class ConcreteMediator {
+    - colleague1: Colleague
+    - colleague2: Colleague
+    + SendMessage(message: String, colleague: Colleague): void
+}
+
+Colleague <|.. ConcreteColleague
+Mediator <|.. ConcreteMediator
+
+ConcreteColleague "1" o-- "1" ConcreteMediator
+
+@enduml
+```

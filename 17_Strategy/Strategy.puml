@@ -1,0 +1,26 @@
+@startuml
+
+interface Strategy {
+    + Execute(num1: int, num2: int): int
+}
+
+class ConcreteStrategyAdd {
+    + Execute(num1: int, num2: int): int
+}
+
+class ConcreteStrategySubtract {
+    + Execute(num1: int, num2: int): int
+}
+
+class Context {
+    - strategy: Strategy
+    + SetStrategy(strategy: Strategy): void
+    + ExecuteStrategy(num1: int, num2: int): int
+}
+
+Strategy <|.. ConcreteStrategyAdd
+Strategy <|.. ConcreteStrategySubtract
+
+Context *-- Strategy
+
+@enduml

@@ -1,0 +1,24 @@
+@startuml
+
+interface Expression {
+    + Interpret(): bool
+}
+
+class TerminalExpression {
+    - data: String
+    + Interpret(): bool
+}
+
+class NonTerminalExpression {
+    - exp1: Expression
+    - exp2: Expression
+    - operator: String
+    + Interpret(): bool
+}
+
+Expression <|.. TerminalExpression
+Expression <|.. NonTerminalExpression
+
+NonTerminalExpression "2" o-- "1" Expression
+
+@enduml
