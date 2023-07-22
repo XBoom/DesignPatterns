@@ -1,0 +1,28 @@
+@startuml
+
+interface Template {
+    + Step1(): void
+    + Step2(): void
+    + Step3(): void
+}
+
+class ConcreteTemplate {
+    + Step1(): void
+    + Step2(): void
+    + Step3(): void
+}
+
+class ConcreteTemplateA {
+    + Step1(): void
+}
+
+class ConcreteTemplateB {
+    + Step3(): void
+}
+
+Template <|-- ConcreteTemplate
+ConcreteTemplate <|-- ConcreteTemplateA
+ConcreteTemplate <|-- ConcreteTemplateB
+
+@enduml
+

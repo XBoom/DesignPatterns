@@ -1,0 +1,22 @@
+@startuml
+
+interface Flyweight {
+    + Operation(extrinsicState: string): void
+}
+
+class ConcreteFlyweight {
+    - intrinsicState: string
+    + Operation(extrinsicState: string): void
+}
+
+Flyweight <|.. ConcreteFlyweight
+
+class FlyweightFactory {
+    - flyweights: map[string]Flyweight
+    + GetFlyweight(key: string): Flyweight
+}
+
+FlyweightFactory o-- Flyweight
+
+@enduml
+

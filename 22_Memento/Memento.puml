@@ -1,0 +1,24 @@
+@startuml
+
+class Memento {
+    - state: String
+    + GetState(): String
+}
+
+class Originator {
+    - state: String
+    + SetState(state: String): void
+    + CreateMemento(): Memento
+    + RestoreMemento(m: Memento): void
+}
+
+class Caretaker {
+    - memento: Memento
+    + GetMemento(): Memento
+    + SetMemento(m: Memento): void
+}
+
+Memento -- Originator
+Caretaker -- Memento
+
+@enduml

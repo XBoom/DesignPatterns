@@ -1,0 +1,31 @@
+@startuml
+
+interface Request {
+    + GetLevel(): int
+    + GetContent(): string
+}
+
+class ConcreteRequest {
+    - level: int
+    - content: string
+    + GetLevel(): int
+    + GetContent(): string
+}
+
+Request <|.. ConcreteRequest
+
+interface Handler {
+    + HandleRequest(request: Request): void
+    + SetNext(handler: Handler): void
+}
+
+class ConcreteHandler {
+    - level: int
+    - next: Handler
+    + HandleRequest(request: Request): void
+    + SetNext(handler: Handler): void
+}
+
+Handler <|.. ConcreteHandler
+
+@enduml

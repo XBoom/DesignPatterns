@@ -1,0 +1,39 @@
+@startuml
+
+interface Element {
+    + Accept(visitor: Visitor): void
+}
+
+class ConcreteElementA {
+    + Accept(visitor: Visitor): void
+}
+
+class ConcreteElementB {
+    + Accept(visitor: Visitor): void
+}
+
+interface Visitor {
+    + VisitConcreteElementA(element: ConcreteElementA): void
+    + VisitConcreteElementB(element: ConcreteElementB): void
+}
+
+class ConcreteVisitor {
+    + VisitConcreteElementA(element: ConcreteElementA): void
+    + VisitConcreteElementB(element: ConcreteElementB): void
+}
+
+class ObjectStructure {
+    - elements: []Element
+    + Attach(element: Element): void
+    + Accept(visitor: Visitor): void
+}
+
+Element <|.. ConcreteElementA
+Element <|.. ConcreteElementB
+
+Visitor <|.. ConcreteVisitor
+
+ObjectStructure *-- Element
+
+@enduml
+

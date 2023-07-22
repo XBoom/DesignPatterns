@@ -1,0 +1,26 @@
+@startuml
+
+interface Component {
+    + Add(component: Component): void
+    + Remove(component: Component): void
+    + Display(depth: int): void
+}
+
+class Leaf {
+    - name: string
+    + Display(depth: int): void
+}
+
+class Composite {
+    - name: string
+    - components: []Component
+    + NewComposite(name: string): *Composite
+    + Add(component: Component): void
+    + Remove(component: Component): void
+    + Display(depth: int): void
+}
+
+Component <|.. Leaf
+Component <|.. Composite
+
+@enduml
