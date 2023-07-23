@@ -1,0 +1,42 @@
+@startuml BuilderPattern
+
+class Car {
+    - battery string
+    - electricMotor string
+    - electronicControl string
+}
+
+interface Builder {
+    + BuildBattery()
+    + BuildElectricMotor()
+    + BuildElectronicControl()
+    + GetCar(): *Car
+}
+
+class BYD {
+    - car Car
+    + BuildBattery()
+    + BuildElectricMotor()
+    + BuildElectronicControl()
+    + GetCar(): *Car
+}
+
+class Tesla {
+    - car Car
+    + BuildBattery()
+    + BuildElectricMotor()
+    + BuildElectronicControl()
+    + GetCar(): *Car
+}
+
+class Director {
+    - builder Builder
+    + Construct()
+}
+
+Car --up-- Builder : contains
+BYD -up-|> Builder : implements
+Tesla -up-|> Builder : implements
+Director -- Builder : uses
+
+@enduml

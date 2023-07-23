@@ -1,0 +1,25 @@
+@startuml AdapterPattern
+
+interface Target {
+    + Request(): string
+}
+
+interface Adaptee {
+    + SpecificRequest(): string
+}
+
+class ConcreteAdaptee {
+    + SpecificRequest(): string
+}
+
+class Adapter {
+    - adaptee Adaptee
+    + Request(): string
+}
+
+Target <|.. Adapter
+Adaptee <|.. ConcreteAdaptee
+Adapter --> Adaptee : adapts
+
+@enduml
+

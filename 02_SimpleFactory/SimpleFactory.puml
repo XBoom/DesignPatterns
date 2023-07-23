@@ -1,0 +1,25 @@
+@startuml FactoryPattern
+
+interface Car {
+    + Name(): string
+}
+
+class BYD {
+    + Name(): string
+}
+
+class Tesla {
+    + Name(): string
+}
+
+Car <|.. BYD
+Car <|.. Tesla
+
+class Factory {
+    + CreateCar(typ: string): Car
+}
+
+Factory -up-|> Car : uses
+
+@enduml
+ß

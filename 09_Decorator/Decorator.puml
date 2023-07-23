@@ -1,0 +1,30 @@
+@startuml DecoratorPattern
+
+interface Battery {
+    + Name(): string
+}
+
+class BatteryComponent {
+    + Name(): string
+}
+
+interface Car {
+    + Run(): string
+}
+
+class BYD {
+    - battery Battery
+    + Run(): string
+}
+
+class Tesla {
+    - battery Battery
+    + Run(): string
+}
+
+Battery <|.. BatteryComponent
+Car <|.. BYD
+Car <|.. Tesla
+Car --> Battery : uses
+
+@enduml

@@ -1,0 +1,15 @@
+@startuml PrototypePattern
+
+interface Prototype {
+    + Clone(): Prototype
+}
+
+class ConcretePrototype {
+    - part1 string
+    - part2 int
+    + Clone(): Prototype
+}
+
+Prototype <|.. ConcretePrototype
+
+@enduml

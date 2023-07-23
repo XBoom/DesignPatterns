@@ -1,0 +1,30 @@
+@startuml BridgePattern
+
+interface Implementor {
+    + operationImpl(): string
+}
+
+class ConcreteImplementorA {
+    + operationImpl(): string
+}
+
+class ConcreteImplementorB {
+    + operationImpl(): string
+}
+
+class Abstraction {
+    - implementor Implementor
+    + Operation(): string
+}
+
+class RefinedAbstraction {
+    - implementor Implementor
+    + Operation(): string
+}
+
+Implementor <|.. ConcreteImplementorA
+Implementor <|.. ConcreteImplementorB
+Abstraction o--> Implementor : contains
+RefinedAbstraction o--> Implementor : contains
+
+@enduml

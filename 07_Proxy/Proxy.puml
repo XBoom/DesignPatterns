@@ -1,0 +1,21 @@
+@startuml ProxyPattern
+
+interface Seller {
+    + Sell(name string)
+}
+
+class Station {
+    - stock int
+    + Sell(name string)
+}
+
+class StationProxy {
+    - station *Station
+    + Sell(name string)
+}
+
+Seller <|.. Station
+Seller <|.. StationProxy
+StationProxy --> Station : uses
+
+@enduml

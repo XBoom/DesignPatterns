@@ -1,0 +1,29 @@
+@startuml FacadePattern
+
+class Client
+
+class ComponentA {
+    +MethodA()
+}
+
+class ComponentB {
+    +MethodB()
+}
+
+class ComponentC {
+    +MethodC()
+}
+
+class Facade {
+    -componentA ComponentA
+    -componentB ComponentB
+    -componentC ComponentC
+    +Operation()
+}
+
+Client --> Facade
+Facade --> ComponentA
+Facade --> ComponentB
+Facade --> ComponentC
+
+@enduml
